@@ -19,7 +19,7 @@ namespace JsonStrGen
         public int SWidth;
         public int SHeight;
         public int ZOrder;
-        public int ResourceId;
+        public string ResourceId;
     }
 
     public class MapEntity
@@ -29,6 +29,6 @@ namespace JsonStrGen
         public int SX;
         public int SY;
         public int ZOrder;
-        public int ResourceId;
+        public string ResourceId;
     }
 }

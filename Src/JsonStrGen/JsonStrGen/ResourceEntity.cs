@@ -7,7 +7,7 @@ namespace JsonStrGen
 {
     public class ResourceEntity
     {
-        public int ResourceId;
+        public string ResourceId;
         public string ImageFilePath;
     }
 }
