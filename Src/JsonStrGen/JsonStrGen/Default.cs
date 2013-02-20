@@ -28,7 +28,7 @@ namespace JsonStrGen
             IList<MapEntity> mapList = new List<MapEntity>();
             for (int x = 1; x <= 20; ++x)
             {
-                for (int y = 1; y <= 15; ++y)
+                for (int y = 1; y <= 30; ++y)
                 {
                     mapList.Add(new MapEntity { XIndex = x, YIndex = y, SX = 0, SY = 0, ZOrder = 0, ResourceId = "1" });
                 }
