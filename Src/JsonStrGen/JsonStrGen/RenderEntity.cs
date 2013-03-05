@@ -18,7 +18,13 @@ namespace JsonStrGen
         public int SY;
         public int SWidth;
         public int SHeight;
-        public int ZOrder;
+        public int ZOrder
+        {
+            get
+            {
+                return this.CY + this.CHeight;
+            }
+        }
         public string ResourceId;
     }
 

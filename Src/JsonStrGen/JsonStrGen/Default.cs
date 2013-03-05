@@ -25,20 +25,22 @@ namespace JsonStrGen
             resourceList.Add(new ResourceEntity { ResourceId = "1", ImageFilePath = "./Resource/Img/mapCell.png" });
             resourceList.Add(new ResourceEntity { ResourceId = "2", ImageFilePath = "./Resource/Img/tree.png" });
 
-            IList<MapEntity> mapList = new List<MapEntity>();
+            IList<RenderEntity> mapList = new List<RenderEntity>();
             for (int x = 1; x <= 20; ++x)
             {
                 for (int y = 1; y <= 30; ++y)
                 {
-                    mapList.Add(new MapEntity { XIndex = x, YIndex = y, SX = 0, SY = 0, ZOrder = 0, ResourceId = "1" });
+                    int cx, cy;
+                    this.ConvertMapIndex2Location(x, y, out cx, out cy);
+                    mapList.Add(new RenderEntity { CX = cx, CY = cy, CWidth = 64, CHeight = 64, SX = 0, SY = 0, SWidth = 64, SHeight = 64, ResourceId = "1" });
                 }
             }
 
             IList<RenderEntity> buildingList = new List<RenderEntity>();
-            buildingList.Add(new RenderEntity { CX = 0, CY = 0, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ZOrder = 128, ResourceId = "2" });
-            buildingList.Add(new RenderEntity { CX = 300, CY = 256, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ZOrder = 256, ResourceId = "2" });
-            buildingList.Add(new RenderEntity { CX = 500, CY = 500, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ZOrder = 500, ResourceId = "2" });
-            buildingList.Add(new RenderEntity { CX = 100, CY = 458, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ZOrder = 458, ResourceId = "2" });
+            buildingList.Add(new RenderEntity { CX = 0, CY = 0, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
+            buildingList.Add(new RenderEntity { CX = 300, CY = 256, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
+            buildingList.Add(new RenderEntity { CX = 500, CY = 500, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
+            buildingList.Add(new RenderEntity { CX = 100, CY = 458, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
 
             var str1 = (new JavaScriptSerializer()).Serialize(resourceList);
             var str2 = (new JavaScriptSerializer()).Serialize(mapList);
@@ -54,6 +56,12 @@ namespace JsonStrGen
                 sw.Flush();
                 sw.Close();
             }
+        }
+
+        private void ConvertMapIndex2Location(int xIndex, int yIndex, out int x, out int y)
+        {
+            x = (xIndex - 1) * 64;
+            y = (yIndex - 1) * 64;
         }
     }
 }
