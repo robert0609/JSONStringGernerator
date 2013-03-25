@@ -37,10 +37,14 @@ namespace JsonStrGen
             }
 
             IList<RenderEntity> buildingList = new List<RenderEntity>();
-            buildingList.Add(new RenderEntity { CX = 0, CY = 0, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
+            buildingList.Add(new RenderEntity { CX = 400, CY = 100, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
             buildingList.Add(new RenderEntity { CX = 300, CY = 256, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
             buildingList.Add(new RenderEntity { CX = 500, CY = 500, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
             buildingList.Add(new RenderEntity { CX = 100, CY = 458, CWidth = 96, CHeight = 128, SX = 0, SY = 0, SWidth = 96, SHeight = 128, ResourceId = "2" });
+            buildingList[0].CreateFoundation(0);
+            buildingList[1].CreateFoundation(1);
+            buildingList[2].CreateFoundation(0);
+            buildingList[3].CreateFoundation(1);
 
             var str1 = (new JavaScriptSerializer()).Serialize(resourceList);
             var str2 = (new JavaScriptSerializer()).Serialize(mapList);
