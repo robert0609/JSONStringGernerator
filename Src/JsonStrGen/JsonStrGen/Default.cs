@@ -26,9 +26,9 @@ namespace JsonStrGen
             resourceList.Add(new ResourceEntity { ResourceId = "2", ImageFilePath = "./Resource/Img/tree.png" });
 
             IList<RenderEntity> mapList = new List<RenderEntity>();
-            for (int x = 1; x <= 20; ++x)
+            for (int x = 1; x <= 100; ++x)
             {
-                for (int y = 1; y <= 30; ++y)
+                for (int y = 1; y <= 100; ++y)
                 {
                     int cx, cy;
                     this.ConvertMapIndex2Location(x, y, out cx, out cy);
